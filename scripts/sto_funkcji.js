@@ -699,8 +699,9 @@ async function fetchData() {
   return data.name;
 }
 
-let abc = await fetchData(); // here the data will be return.
-console.log(abc); // you are using async await then no need of .then().
+let abc = fetchData(); // here the data will be return.
+let roto = abc.then((r) => r);
+// console.log(roto);
 
 function showPokemon(no) {
   for (let i = 1; i < no + 1; i++) {
@@ -709,3 +710,19 @@ function showPokemon(no) {
 }
 
 // showPokemon(1);
+
+function getWeather(url) {
+  return fetch(url).then((response) => response.json());
+}
+
+function getWeatherData(pr, weatherParams) {
+  pr.then((data) => {
+    const newData = data.map(
+      (item) => `${item.stacja}: ${item[weatherParams]}`
+    );
+    console.log(newData);
+  });
+}
+
+const result = getWeather("https://danepubliczne.imgw.pl/api/data/synop/");
+// getWeatherData(result, "temperatura")

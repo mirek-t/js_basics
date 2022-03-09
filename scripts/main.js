@@ -89,7 +89,7 @@ function elo(){
 }
 elo(1, 2, 3, "ala")
 
-//clouser
+//closure
 function x(wartosc1){
   return function y(wartosc2){
     return wartosc1 + wartosc2;
