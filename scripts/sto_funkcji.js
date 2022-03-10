@@ -685,7 +685,7 @@ const pokeApi = (pokeID) => {
 
   const body = document.querySelector("body");
   const pokeImage = document.createElement("img");
-  const text = document.createTextNode(pokemon);
+  const text = document.createTextNode(pokeID);
   pokeImage.srcset = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeID}.png`;
   body.appendChild(pokeImage);
   body.appendChild(text);
@@ -699,9 +699,16 @@ async function fetchData() {
   return data.name;
 }
 
-let abc = fetchData(); // here the data will be return.
-let roto = abc.then((r) => r);
-// console.log(roto);
+function writePokemon() {
+  const abc = fetchData(); // here the data will be return.
+  console.log(
+    abc.then((res) => {
+      return res;
+    })
+  );
+}
+
+// writePokemon();
 
 function showPokemon(no) {
   for (let i = 1; i < no + 1; i++) {
@@ -709,7 +716,7 @@ function showPokemon(no) {
   }
 }
 
-// showPokemon(1);
+// showPokemon(9);
 
 function getWeather(url) {
   return fetch(url).then((response) => response.json());
@@ -726,3 +733,21 @@ function getWeatherData(pr, weatherParams) {
 
 const result = getWeather("https://danepubliczne.imgw.pl/api/data/synop/");
 // getWeatherData(result, "temperatura")
+
+const sumArrayItems = (arr1, arr2) => {
+  const t = [];
+
+  for (
+    let i = 0;
+    i < (arr1.length > arr2.length ? arr1.length : arr2.length);
+    i++
+  ) {
+    t.push((arr1[i] || 0) + (arr2[i] || 0));
+  }
+};
+
+// console.log(sumArrayItems([1, 2, 3], [4, 5])); // [5, 7, 3]
+
+const getMax = (digit) => `${digit}`.split("").sort((a, b) => b - a)[0];
+
+console.log(getMax(123456)); //6
