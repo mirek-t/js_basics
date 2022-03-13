@@ -230,7 +230,7 @@ const petCounts = (pets) =>
     return obj;
   }, {});
 
-// console.log(petCounts(pets));
+console.log(petCounts(pets));
 
 const arrayArrays = [1, 2, [3, 4, 5, [6, 7, [8, 9]]]];
 
@@ -708,7 +708,7 @@ function writePokemon() {
   );
 }
 
-// writePokemon();
+writePokemon();
 
 function showPokemon(no) {
   for (let i = 1; i < no + 1; i++) {
@@ -750,4 +750,4 @@ const sumArrayItems = (arr1, arr2) => {
 
 const getMax = (digit) => `${digit}`.split("").sort((a, b) => b - a)[0];
 
-console.log(getMax(123456)); //6
+// console.log(getMax(123456)); //6
