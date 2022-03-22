@@ -124,3 +124,18 @@ const data = [
 // 1. Wyświetl średnią liczbę zwyciestw kierowców którzy jeżdżą lub jeździli dla McLarena.
 // 2. Wyświetl kierowców, którzy nie wygrali wyścigu i jeździli tylko dla jednego zespołu.
 // 3. Wyświetl kraje kierowców, którzy jeździli dla Renault i odnieśli przynajmniej 10 zwycięstw
+
+const mclarenWins = (data) => {
+  const drivers = data.filter((e) => e.teams.includes("Mclaren"));
+
+  const mean = Math.floor(
+    drivers.reduce((acc, cu) => acc + cu.wins, 0) / drivers.length
+  );
+  return mean;
+};
+
+const getNoWiners = (data) =>
+  data.filter((e) => e.wins === 0 && e.teams.length === 1).map((e) => e.name);
+
+const getRenaultDrivers = (data) =>
+  data.filter((e) => e.teams.includes("Renault") && e.wins >= 10);
