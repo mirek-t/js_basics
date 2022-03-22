@@ -230,7 +230,7 @@ const petCounts = (pets) =>
     return obj;
   }, {});
 
-console.log(petCounts(pets));
+// console.log(petCounts(pets));
 
 const arrayArrays = [1, 2, [3, 4, 5, [6, 7, [8, 9]]]];
 
@@ -691,25 +691,6 @@ const pokeApi = (pokeID) => {
   body.appendChild(text);
 };
 
-async function fetchData() {
-  let response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
-  let data = await response.json();
-  data = JSON.stringify(data);
-  data = JSON.parse(data);
-  return data.name;
-}
-
-function writePokemon() {
-  const abc = fetchData(); // here the data will be return.
-  console.log(
-    abc.then((res) => {
-      return res;
-    })
-  );
-}
-
-writePokemon();
-
 function showPokemon(no) {
   for (let i = 1; i < no + 1; i++) {
     pokeApi(i);
@@ -717,6 +698,15 @@ function showPokemon(no) {
 }
 
 // showPokemon(9);
+
+let pokemon = "";
+
+async function fetchData() {
+  let response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
+  let data = await response.json();
+  const answer = data.then((response) => (pokemon = response));
+  return answer;
+}
 
 function getWeather(url) {
   return fetch(url).then((response) => response.json());
