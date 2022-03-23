@@ -121,5 +121,3 @@ const mostTitledTeams = (quarterfinalists) =>
 
 const getCoachNationality = (quarterfinalists) =>
   new Set(quarterfinalists.map((e) => e.coach[0].nationality));
-
-console.log(coachesMeanAge(quarterfinalists));
