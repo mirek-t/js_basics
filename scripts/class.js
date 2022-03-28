@@ -122,3 +122,24 @@ console.log(auto3);
 auto3.slowDown(10);
 auto3.slowDown(200);
 auto3.stopEngine();
+
+class Van extends Auto {
+  constructor(brand, vMax, seats) {
+    super(brand, vMax);
+    this.seats = seats;
+  }
+
+  speedUp(value) {
+    super.speedUp(value * 0.9);
+  }
+
+  stopEngine() {
+    if (!this.speed) {
+      super.stopEngine();
+    } else {
+      console.log("Slow down first");
+    }
+  }
+}
+
+const bmw = new Van("Seria 2", 160, 7);
