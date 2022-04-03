@@ -41,3 +41,5 @@ TS nie ma interpretera, ma tylko transpilator, jest kompilowany do JS
 4. default: global object (except strict mode)
 
 ## Arrow function this => arrow function does not have this (lexical this), not have arguments, not have super and not have new.target
+
+## getter i setter to deskryptory obiektu

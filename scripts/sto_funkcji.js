@@ -741,3 +741,73 @@ const sumArrayItems = (arr1, arr2) => {
 const getMax = (digit) => `${digit}`.split("").sort((a, b) => b - a)[0];
 
 // console.log(getMax(123456)); //6
+
+function returnArray(size) {
+  return new Array(size).fill(0).map((el, key) => key);
+}
+
+const result10 = returnArray(10);
+
+// console.log(result10[0]);
+
+function returnObject() {
+  return {
+    first: "ala",
+    second: "bala",
+    third: "cala",
+  };
+}
+
+// console.log(returnObject().first);
+
+function fixName(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+const result11 = fixName("piotr") + " " + fixName("kowalski");
+// console.log(result11);
+
+function getStatus(number) {
+  if (number < 20) {
+    return "bad";
+  }
+
+  if (number < 30) {
+    return "medium";
+  }
+
+  return "good";
+}
+
+// console.log(getStatus(10));
+// console.log(getStatus(25));
+
+function randomBetween(min = 0, max = 10) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function calculate(number1, number2) {
+  const result = number1 + number2;
+  return result;
+}
+
+// calculate(10, 4);
+
+function superSum(...params) {
+  console.log(params);
+
+  const sum = params.reduce(function (a, b) {
+    return a + b;
+  });
+
+  return sum;
+}
+
+// superSum(1, 2, 3, 4);
+
+function printText(txt) {
+  console.log("Twój tekst to " + txt);
+}
+
+// printText("kot");
+// printText();

@@ -108,12 +108,22 @@
 
 // new (workshop.ask.bind(workshop))("What does this do?");
 
-const workshop = {
-  teacher: "Kyle",
-  ask: (question) => {
-    console.log(this.teacher, question);
-  },
+// const workshop = {
+//   teacher: "Kyle",
+//   ask: (question) => {
+//     console.log(this.teacher, question);
+//   },
+// };
+
+// workshop.ask("What");
+// workshop.ask.call(workshop, "What");
+
+function Workshop(teacher) {
+  this.teacher = teacher;
+}
+
+Workshop.prototype.ask = function (question) {
+  console.log(this.teacher, question);
 };
 
-workshop.ask("What");
-workshop.ask.call(workshop, "What");
+const deepJs = new Workshop("Kyle");
